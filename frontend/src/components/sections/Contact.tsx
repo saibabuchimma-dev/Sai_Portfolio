@@ -1,8 +1,9 @@
 import { profile } from '../../data/portfolio'
 import { Section } from '../ui/Section'
 import { Reveal } from '../ui/Reveal'
-import { buildGmailCompose, buildPlainMailto } from '../../lib/contact'
+import { buildGmailCompose } from '../../lib/contact'
 import {
+  IconDownload,
   IconGithub,
   IconLinkedin,
   IconMail,
@@ -17,19 +18,22 @@ const CHANNELS = [
     label: 'Email',
     value: profile.email,
     icon: IconMail,
-    href: buildPlainMailto(),
+    href: buildGmailCompose(),
+    external: true,
   },
   {
     label: 'Phone',
     value: profile.phoneDisplay,
     icon: IconPhone,
     href: profile.phoneHref,
+    external: false,
   },
   {
     label: 'Location',
     value: profile.location,
     icon: IconMapPin,
     href: undefined,
+    external: false,
   },
 ]
 
@@ -63,6 +67,10 @@ export function Contact() {
                   <IconLinkedin className="size-4" />
                   Connect on LinkedIn
                 </Button>
+                <Button href={profile.resume} download variant="secondary">
+                  <IconDownload className="size-4" />
+                  Download CV
+                </Button>
               </div>
 
               <div className="mt-8 flex items-center gap-3">
@@ -72,14 +80,14 @@ export function Contact() {
                 <SocialLink href={profile.linkedin} label="LinkedIn">
                   <IconLinkedin className="size-[18px]" />
                 </SocialLink>
-                <SocialLink href={buildPlainMailto()} label="Email" external={false}>
+                <SocialLink href={buildGmailCompose()} label="Email">
                   <IconMail className="size-[18px]" />
                 </SocialLink>
               </div>
             </div>
 
             <div className="flex min-w-0 flex-col gap-3">
-              {CHANNELS.map(({ label, value, icon: Icon, href }) => {
+              {CHANNELS.map(({ label, value, icon: Icon, href, external }) => {
                 const inner = (
                   <>
                     <span className="grid size-11 shrink-0 place-items-center rounded-xl bg-violet-50 text-violet-600 transition-colors group-hover:bg-violet-600 group-hover:text-white">
@@ -99,6 +107,7 @@ export function Contact() {
                     key={label}
                     href={href}
                     className="group tile flex min-w-0 items-center gap-4 p-4"
+                    {...(external ? { target: '_blank', rel: 'noreferrer' } : {})}
                   >
                     {inner}
                   </a>

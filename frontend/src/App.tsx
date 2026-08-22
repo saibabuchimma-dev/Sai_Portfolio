@@ -8,10 +8,12 @@ import { Education } from './components/sections/Education'
 import { Contact } from './components/sections/Contact'
 import { Footer } from './components/Footer'
 import { BackToTop } from './components/BackToTop'
+import { ScrollProgress } from './components/ScrollProgress'
 
 function App() {
   return (
     <div className="min-h-screen bg-platinum">
+      <ScrollProgress />
       <Navbar />
       <main>
         <Hero />

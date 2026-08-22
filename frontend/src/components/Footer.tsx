@@ -1,5 +1,5 @@
 import { profile } from '../data/portfolio'
-import { buildPlainMailto } from '../lib/contact'
+import { buildGmailCompose } from '../lib/contact'
 import { IconGithub, IconLinkedin, IconMail } from './icons'
 import { SocialLink } from './ui/SocialLink'
 
@@ -36,7 +36,7 @@ export function Footer() {
           <SocialLink href={profile.linkedin} label="LinkedIn">
             <IconLinkedin className="size-[18px]" />
           </SocialLink>
-          <SocialLink href={buildPlainMailto()} label="Email" external={false}>
+          <SocialLink href={buildGmailCompose()} label="Email">
             <IconMail className="size-[18px]" />
           </SocialLink>
         </div>
