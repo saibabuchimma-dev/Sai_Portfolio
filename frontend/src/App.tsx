@@ -1,36 +1,29 @@
-import { MotionConfig } from 'framer-motion'
-import { Navbar } from './components/layout/Navbar'
-import { Footer } from './components/layout/Footer'
-import { BackgroundFX } from './components/layout/BackgroundFX'
-import { Hero } from './sections/Hero'
-import { About } from './sections/About'
-import { Skills } from './sections/Skills'
-import { Experience } from './sections/Experience'
-import { Projects } from './sections/Projects'
-import { Education } from './sections/Education'
-import { Contact } from './sections/Contact'
-import { useActiveSection } from './hooks/useActiveSection'
-import { SECTION_IDS } from './data/portfolio'
+import { Navbar } from './components/Navbar'
+import { Hero } from './components/sections/Hero'
+import { About } from './components/sections/About'
+import { Skills } from './components/sections/Skills'
+import { Experience } from './components/sections/Experience'
+import { Projects } from './components/sections/Projects'
+import { Education } from './components/sections/Education'
+import { Contact } from './components/sections/Contact'
+import { Footer } from './components/Footer'
 
-export default function App() {
-  const active = useActiveSection(SECTION_IDS)
-
+function App() {
   return (
-    <MotionConfig reducedMotion="user">
-      <div className="relative min-h-screen overflow-x-clip font-sans">
-        <BackgroundFX />
-        <Navbar active={active} />
-        <main>
-          <Hero />
-          <About />
-          <Skills />
-          <Experience />
-          <Projects />
-          <Education />
-          <Contact />
-        </main>
-        <Footer />
-      </div>
-    </MotionConfig>
+    <div className="min-h-screen bg-platinum">
+      <Navbar />
+      <main>
+        <Hero />
+        <About />
+        <Skills />
+        <Experience />
+        <Projects />
+        <Education />
+        <Contact />
+      </main>
+      <Footer />
+    </div>
   )
 }
+
+export default App
