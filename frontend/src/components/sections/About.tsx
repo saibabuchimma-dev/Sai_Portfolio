@@ -5,12 +5,12 @@ import { Reveal } from '../ui/Reveal'
 import { Card } from '../ui/Card'
 import { Chip } from '../ui/Chip'
 import { IconMail, IconMapPin, IconPhone } from '../icons'
-import { buildPlainMailto } from '../../lib/contact'
+import { buildGmailCompose } from '../../lib/contact'
 
 const QUICK_FACTS = [
-  { label: 'Location', value: profile.location, icon: IconMapPin, href: undefined },
-  { label: 'Email', value: profile.email, icon: IconMail, href: buildPlainMailto() },
-  { label: 'Phone', value: profile.phoneDisplay, icon: IconPhone, href: profile.phoneHref },
+  { label: 'Location', value: profile.location, icon: IconMapPin, href: undefined, external: false },
+  { label: 'Email', value: profile.email, icon: IconMail, href: buildGmailCompose(), external: true },
+  { label: 'Phone', value: profile.phoneDisplay, icon: IconPhone, href: profile.phoneHref, external: false },
 ]
 
 export function About() {
@@ -45,7 +45,7 @@ export function About() {
               Quick facts
             </p>
             <ul className="mt-5 space-y-4">
-              {QUICK_FACTS.map(({ label, value, icon: Icon, href }) => (
+              {QUICK_FACTS.map(({ label, value, icon: Icon, href, external }) => (
                 <li key={label} className="flex items-center gap-3.5">
                   <span className="grid size-10 shrink-0 place-items-center rounded-xl bg-violet-50 text-violet-600">
                     <Icon className="size-[18px]" />
@@ -58,6 +58,7 @@ export function About() {
                       <a
                         href={href}
                         className="block break-words text-sm font-medium text-ink transition-colors hover:text-violet-600"
+                        {...(external ? { target: '_blank', rel: 'noreferrer' } : {})}
                       >
                         {value}
                       </a>

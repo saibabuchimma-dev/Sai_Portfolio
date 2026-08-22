@@ -30,11 +30,3 @@ export function buildGmailCompose(): string {
   })
   return `https://mail.google.com/mail/?${params.toString()}`
 }
-
-export function buildHelloMailto(): string {
-  return `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(SUBJECT)}&body=${encodeURIComponent(BODY)}`
-}
-
-export function buildPlainMailto(): string {
-  return `mailto:${CONTACT_EMAIL}`
-}

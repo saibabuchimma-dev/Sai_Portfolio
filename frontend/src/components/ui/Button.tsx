@@ -13,6 +13,7 @@ interface ButtonProps {
   variant?: ButtonVariant
   href?: string
   external?: boolean
+  download?: boolean
   onClick?: () => void
   type?: 'button' | 'submit'
   disabled?: boolean
@@ -25,6 +26,7 @@ export function Button({
   variant = 'primary',
   href,
   external = false,
+  download = false,
   onClick,
   type = 'button',
   disabled,
@@ -40,6 +42,7 @@ export function Button({
         onClick={onClick}
         aria-label={ariaLabel}
         className={classes}
+        {...(download ? { download: '' } : {})}
         {...(external ? { target: '_blank', rel: 'noreferrer' } : {})}
       >
         {children}

@@ -3,7 +3,7 @@ import { profile, PROJECTS } from '../../data/portfolio'
 import { EASE } from '../../lib/motion'
 import { buildGmailCompose } from '../../lib/contact'
 import { WordReveal } from '../ui/WordReveal'
-import { IconArrowUpRight, IconGithub, IconLinkedin, IconMail, IconMapPin } from '../icons'
+import { IconArrowUpRight, IconDownload, IconGithub, IconLinkedin, IconMail, IconMapPin } from '../icons'
 import { Button } from '../ui/Button'
 import { SocialLink } from '../ui/SocialLink'
 
@@ -95,6 +95,10 @@ export function Hero() {
               View projects
               <IconArrowUpRight className="size-4" />
             </Button>
+            <Button href={profile.resume} download variant="secondary">
+              <IconDownload className="size-4" />
+              Download CV
+            </Button>
           </motion.div>
 
           <motion.div
@@ -135,7 +139,7 @@ export function Hero() {
                 aria-hidden="true"
               />
               <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-violet-600 via-violet-500 to-violet-300 p-[3px] shadow-[0_35px_80px_-30px_rgba(124,58,237,0.6)]">
-                <div className="size-full rounded-full bg-platinum p-0.9">
+                <div className="size-full rounded-full bg-platinum p-2.5">
                   {profile.photo ? (
                     <img
                       src={profile.photo}
