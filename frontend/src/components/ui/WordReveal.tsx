@@ -9,10 +9,6 @@ interface WordRevealProps {
   stagger?: number
 }
 
-/**
- * Reveals a line of text one word at a time — each word rises and unblurs
- * in sequence, giving the slow "typed by hand" entrance for the hero intro.
- */
 export function WordReveal({ text, className, startDelay = 0, stagger = 0.14 }: WordRevealProps) {
   const words = text.split(' ')
 

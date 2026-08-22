@@ -1,9 +1,12 @@
 import type { ProjectStatus } from '../../data/portfolio'
 
 const STATUS_STYLES: Record<ProjectStatus, string> = {
-  'In Progress': 'border-amber-300/70 bg-amber-50 text-amber-700',
-  Production: 'border-emerald-300/70 bg-emerald-50 text-emerald-700',
-  Completed: 'border-violet-200 bg-violet-50 text-violet-700',
+  'In Progress':
+    'border-amber-300/70 bg-amber-50 text-amber-700 dark:border-amber-400/30 dark:bg-amber-400/10 dark:text-amber-300',
+  Production:
+    'border-emerald-300/70 bg-emerald-50 text-emerald-700 dark:border-emerald-400/30 dark:bg-emerald-400/10 dark:text-emerald-300',
+  Completed:
+    'border-violet-200 bg-violet-50 text-violet-700 dark:border-violet-400/30 dark:bg-violet-500/15 dark:text-violet-300',
 }
 
 interface StatusBadgeProps {

@@ -4,6 +4,8 @@ import { EASE } from '../../lib/motion'
 import { buildGmailCompose } from '../../lib/contact'
 import { WordReveal } from '../ui/WordReveal'
 import { IconArrowUpRight, IconGithub, IconLinkedin, IconMail, IconMapPin } from '../icons'
+import { Button } from '../ui/Button'
+import { SocialLink } from '../ui/SocialLink'
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -29,14 +31,13 @@ export function Hero() {
       />
 
       <div className="relative mx-auto grid w-full max-w-6xl grid-cols-1 items-center gap-16 px-5 pb-12 pt-32 sm:px-8 sm:pt-36 lg:grid-cols-[1.1fr_0.9fr] lg:gap-8 lg:pb-16 lg:pt-40">
-        {/* Left — intro */}
         <div>
           <motion.span
             custom={0}
             variants={fadeUp}
             initial="hidden"
             animate="visible"
-            className="inline-flex items-center gap-2 rounded-full border border-ink/10 bg-white/70 px-3.5 py-1.5 text-xs font-medium text-ink-muted shadow-sm backdrop-blur"
+            className="inline-flex items-center gap-2 rounded-full border border-ink/10 bg-surface/70 px-3.5 py-1.5 text-xs font-medium text-ink-muted shadow-sm backdrop-blur"
           >
             <span className="relative flex size-2">
               <span className="absolute inline-flex size-full animate-ping rounded-full bg-emerald-400 opacity-70" />
@@ -86,14 +87,14 @@ export function Hero() {
             animate="visible"
             className="mt-8 flex flex-wrap items-center gap-3"
           >
-            <a href={buildGmailCompose()} target="_blank" rel="noreferrer" className="btn-primary">
+            <Button href={buildGmailCompose()} external>
               <IconMail className="size-4" />
               Say hello
-            </a>
-            <a href="#projects" className="btn-secondary">
+            </Button>
+            <Button href="#projects" variant="secondary">
               View projects
               <IconArrowUpRight className="size-4" />
-            </a>
+            </Button>
           </motion.div>
 
           <motion.div
@@ -103,12 +104,12 @@ export function Hero() {
             animate="visible"
             className="mt-7 flex items-center gap-3"
           >
-            <a href={profile.github} target="_blank" rel="noreferrer" aria-label="GitHub" className="social-btn">
+            <SocialLink href={profile.github} label="GitHub">
               <IconGithub className="size-[18px]" />
-            </a>
-            <a href={profile.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn" className="social-btn">
+            </SocialLink>
+            <SocialLink href={profile.linkedin} label="LinkedIn">
               <IconLinkedin className="size-[18px]" />
-            </a>
+            </SocialLink>
             <span className="ml-1 inline-flex items-center gap-1.5 text-sm text-ink-muted">
               <IconMapPin className="size-4 text-violet-500" />
               {profile.location}
@@ -116,7 +117,6 @@ export function Hero() {
           </motion.div>
         </div>
 
-        {/* Right — circular portrait */}
         <motion.div
           custom={1.2}
           variants={fadeUp}
@@ -126,19 +126,16 @@ export function Hero() {
         >
           <div className="relative animate-float-slow">
             <div className="relative size-72 sm:size-80 lg:size-[25rem]">
-              {/* Soft violet glow */}
               <div
                 className="absolute -inset-8 rounded-full bg-[radial-gradient(circle,rgba(124,58,237,0.22),transparent_62%)] blur-2xl"
                 aria-hidden="true"
               />
-              {/* Slow rotating dashed accent ring */}
               <div
                 className="absolute -inset-4 animate-spin-slow rounded-full border border-dashed border-violet-300/70"
                 aria-hidden="true"
               />
-              {/* Gradient ring frame */}
               <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-violet-600 via-violet-500 to-violet-300 p-[3px] shadow-[0_35px_80px_-30px_rgba(124,58,237,0.6)]">
-                <div className="size-full rounded-full bg-platinum p-2.5">
+                <div className="size-full rounded-full bg-platinum p-0.9">
                   {profile.photo ? (
                     <img
                       src={profile.photo}
@@ -147,18 +144,17 @@ export function Hero() {
                       loading="eager"
                     />
                   ) : (
-                    <div className="grid size-full place-items-center rounded-full bg-white font-display text-7xl font-semibold text-violet-600">
+                    <div className="grid size-full place-items-center rounded-full bg-surface font-display text-7xl font-semibold text-violet-600">
                       {profile.initials}
                     </div>
                   )}
                 </div>
               </div>
 
-              {/* Floating stat pills */}
               {FLOATING_STATS.map((stat) => (
                 <div
                   key={stat.label}
-                  className={`absolute rounded-2xl border border-ink/[0.08] bg-white/90 px-4 py-2.5 text-center shadow-[0_16px_40px_-18px_rgba(23,19,31,0.35)] backdrop-blur ${stat.className}`}
+                  className={`absolute rounded-2xl border border-ink/[0.08] bg-surface/90 px-4 py-2.5 text-center shadow-[0_16px_40px_-18px_rgba(23,19,31,0.35)] backdrop-blur ${stat.className}`}
                 >
                   <p className="font-display text-xl font-semibold leading-none text-ink">{stat.value}</p>
                   <p className="mt-1 text-[10px] font-medium uppercase tracking-wide text-ink-muted">

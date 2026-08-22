@@ -2,6 +2,8 @@ import { EXPERIENCE } from '../../data/portfolio'
 import { Section } from '../ui/Section'
 import { SectionHeading } from '../ui/SectionHeading'
 import { Reveal } from '../ui/Reveal'
+import { Card } from '../ui/Card'
+import { Chip } from '../ui/Chip'
 
 export function Experience() {
   return (
@@ -22,7 +24,7 @@ export function Experience() {
                   aria-hidden="true"
                 />
 
-                <div className="surface-card p-6 sm:p-7">
+                <Card className="p-6 sm:p-7">
                   <div className="flex flex-wrap items-start justify-between gap-x-4 gap-y-2">
                     <div>
                       <h3 className="text-lg font-semibold text-ink">{job.role}</h3>
@@ -53,17 +55,14 @@ export function Experience() {
                       </p>
                       <div className="mt-3 flex flex-wrap gap-2">
                         {job.projects.map((project) => (
-                          <span
-                            key={project}
-                            className="rounded-lg border border-ink/[0.08] bg-platinum-100/70 px-3 py-1.5 text-xs font-medium text-ink-soft"
-                          >
+                          <Chip key={project} variant="muted">
                             {project}
-                          </span>
+                          </Chip>
                         ))}
                       </div>
                     </div>
                   )}
-                </div>
+                </Card>
               </div>
             </Reveal>
           ))}

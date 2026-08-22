@@ -3,6 +3,9 @@ import { NAV_LINKS, SECTION_IDS, profile } from '../data/portfolio'
 import { useActiveSection } from '../hooks/useActiveSection'
 import { buildGmailCompose } from '../lib/contact'
 import { IconMenu, IconX } from './icons'
+import { ThemeToggle } from './ThemeToggle'
+import { Button } from './ui/Button'
+import { IconButton } from './ui/IconButton'
 
 export function Navbar() {
   const active = useActiveSection(SECTION_IDS)
@@ -58,7 +61,7 @@ export function Navbar() {
                 <a
                   href={link.href}
                   className={`relative rounded-full px-3.5 py-2 text-sm font-medium transition-colors duration-200 ${
-                    isActive ? 'text-violet-700' : 'text-ink-muted hover:text-ink'
+                    isActive ? 'text-violet-700 dark:text-violet-300' : 'text-ink-muted hover:text-ink'
                   }`}
                 >
                   {isActive && (
@@ -72,27 +75,25 @@ export function Navbar() {
         </ul>
 
         <div className="flex items-center gap-2">
-          <a
+          <ThemeToggle />
+          <Button
             href={buildGmailCompose()}
-            target="_blank"
-            rel="noreferrer"
-            className="hidden btn-primary !px-5 !py-2.5 sm:inline-flex"
+            external
+            className="hidden !px-5 !py-2.5 sm:inline-flex"
           >
             Say hello
-          </a>
-          <button
-            type="button"
+          </Button>
+          <IconButton
             onClick={() => setMenuOpen((v) => !v)}
             aria-label={menuOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={menuOpen}
-            className="grid size-10 place-items-center rounded-full border border-ink/12 bg-white text-ink-soft shadow-sm transition-colors hover:text-violet-600 lg:hidden"
+            className="lg:hidden"
           >
             {menuOpen ? <IconX className="size-5" /> : <IconMenu className="size-5" />}
-          </button>
+          </IconButton>
         </div>
       </nav>
 
-      {/* Mobile menu */}
       <div
         className={`overflow-hidden border-t border-ink/[0.07] bg-platinum/95 backdrop-blur-xl transition-[max-height,opacity] duration-300 lg:hidden ${
           menuOpen ? 'max-h-[520px] opacity-100' : 'max-h-0 opacity-0'
@@ -108,7 +109,7 @@ export function Navbar() {
                   href={link.href}
                   onClick={() => setMenuOpen(false)}
                   className={`block rounded-xl px-4 py-3 text-sm font-medium transition-colors ${
-                    isActive ? 'bg-violet-50 text-violet-700' : 'text-ink-soft hover:bg-white'
+                    isActive ? 'bg-violet-50 text-violet-700 dark:text-violet-300' : 'text-ink-soft hover:bg-surface'
                   }`}
                 >
                   {link.label}
@@ -117,15 +118,14 @@ export function Navbar() {
             )
           })}
           <li className="pt-2">
-            <a
+            <Button
               href={buildGmailCompose()}
-              target="_blank"
-              rel="noreferrer"
+              external
               onClick={() => setMenuOpen(false)}
-              className="btn-primary w-full"
+              className="w-full"
             >
               Say hello
-            </a>
+            </Button>
           </li>
         </ul>
       </div>

@@ -9,6 +9,8 @@ import {
   IconMapPin,
   IconPhone,
 } from '../icons'
+import { Button } from '../ui/Button'
+import { SocialLink } from '../ui/SocialLink'
 
 const CHANNELS = [
   {
@@ -35,11 +37,10 @@ export function Contact() {
   return (
     <Section id="contact" className="bg-platinum-100/60">
       <Reveal>
-        <div className="relative overflow-hidden rounded-3xl border border-ink/[0.08] bg-white p-8 shadow-[0_1px_3px_rgba(18,21,28,0.04),0_24px_60px_-30px_rgba(18,21,28,0.25)] sm:p-12">
+        <div className="relative overflow-hidden rounded-3xl border border-ink/[0.08] bg-surface p-8 shadow-[0_1px_3px_rgba(18,21,28,0.04),0_24px_60px_-30px_rgba(18,21,28,0.25)] sm:p-12">
           <div className="pointer-events-none absolute inset-0 bg-halo" aria-hidden="true" />
 
           <div className="relative grid gap-10 lg:grid-cols-[1fr_1fr] lg:gap-14">
-            {/* Left — call to action */}
             <div>
               <p className="font-mono text-xs font-medium uppercase tracking-[0.2em] text-violet-600">
                 06 — Contact
@@ -54,30 +55,29 @@ export function Contact() {
               </p>
 
               <div className="mt-8 flex flex-wrap gap-3">
-                <a href={buildGmailCompose()} target="_blank" rel="noreferrer" className="btn-primary">
+                <Button href={buildGmailCompose()} external>
                   <IconMail className="size-4" />
                   Say hello
-                </a>
-                <a href={profile.linkedin} target="_blank" rel="noreferrer" className="btn-secondary">
+                </Button>
+                <Button href={profile.linkedin} external variant="secondary">
                   <IconLinkedin className="size-4" />
                   Connect on LinkedIn
-                </a>
+                </Button>
               </div>
 
               <div className="mt-8 flex items-center gap-3">
-                <a href={profile.github} target="_blank" rel="noreferrer" aria-label="GitHub" className="social-btn">
+                <SocialLink href={profile.github} label="GitHub">
                   <IconGithub className="size-[18px]" />
-                </a>
-                <a href={profile.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn" className="social-btn">
+                </SocialLink>
+                <SocialLink href={profile.linkedin} label="LinkedIn">
                   <IconLinkedin className="size-[18px]" />
-                </a>
-                <a href={buildPlainMailto()} aria-label="Email" className="social-btn">
+                </SocialLink>
+                <SocialLink href={buildPlainMailto()} label="Email" external={false}>
                   <IconMail className="size-[18px]" />
-                </a>
+                </SocialLink>
               </div>
             </div>
 
-            {/* Right — channels */}
             <div className="flex flex-col gap-3">
               {CHANNELS.map(({ label, value, icon: Icon, href }) => {
                 const inner = (

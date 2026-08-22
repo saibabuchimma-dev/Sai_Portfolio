@@ -10,7 +10,16 @@
       content="Portfolio of Sai Babu Chimma — Frontend Developer specializing in React.js, Next.js, TypeScript, and Tailwind CSS."
     />
     <meta name="theme-color" content="#f7f6f3" />
-    <title>Sai Babu Chimma | Frontend Developer</title>
+    <title>Sai Babu Chimma Portfolio</title>
+    <script>
+      (function () {
+        try {
+          var t = localStorage.getItem('theme');
+          var dark = t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches);
+          if (dark) document.documentElement.classList.add('dark');
+        } catch (e) {}
+      })();
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link

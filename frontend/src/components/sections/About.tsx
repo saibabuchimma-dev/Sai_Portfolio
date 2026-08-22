@@ -2,6 +2,8 @@ import { ABOUT_HIGHLIGHTS, ABOUT_PARAGRAPHS, profile } from '../../data/portfoli
 import { Section } from '../ui/Section'
 import { SectionHeading } from '../ui/SectionHeading'
 import { Reveal } from '../ui/Reveal'
+import { Card } from '../ui/Card'
+import { Chip } from '../ui/Chip'
 import { IconMail, IconMapPin, IconPhone } from '../icons'
 import { buildPlainMailto } from '../../lib/contact'
 
@@ -30,18 +32,15 @@ export function About() {
 
           <div className="mt-8 flex flex-wrap gap-2.5">
             {ABOUT_HIGHLIGHTS.map((highlight) => (
-              <span
-                key={highlight}
-                className="rounded-full border border-violet-200 bg-violet-50 px-3.5 py-1.5 text-xs font-medium text-violet-700"
-              >
+              <Chip key={highlight} variant="accent">
                 {highlight}
-              </span>
+              </Chip>
             ))}
           </div>
         </Reveal>
 
         <Reveal delay={0.1}>
-          <div className="surface-card p-6">
+          <Card className="p-6">
             <p className="font-mono text-xs font-medium uppercase tracking-[0.18em] text-ink-muted">
               Quick facts
             </p>
@@ -69,7 +68,7 @@ export function About() {
                 </li>
               ))}
             </ul>
-          </div>
+          </Card>
         </Reveal>
       </div>
     </Section>
