@@ -41,7 +41,7 @@ export function Contact() {
           <div className="pointer-events-none absolute inset-0 bg-halo" aria-hidden="true" />
 
           <div className="relative grid gap-10 lg:grid-cols-[1fr_1fr] lg:gap-14">
-            <div>
+            <div className="min-w-0">
               <p className="font-mono text-xs font-medium uppercase tracking-[0.2em] text-violet-600">
                 06 — Contact
               </p>
@@ -78,7 +78,7 @@ export function Contact() {
               </div>
             </div>
 
-            <div className="flex flex-col gap-3">
+            <div className="flex min-w-0 flex-col gap-3">
               {CHANNELS.map(({ label, value, icon: Icon, href }) => {
                 const inner = (
                   <>
@@ -89,7 +89,7 @@ export function Contact() {
                       <span className="block text-[11px] font-medium uppercase tracking-wide text-ink-muted">
                         {label}
                       </span>
-                      <span className="block truncate text-sm font-semibold text-ink">{value}</span>
+                      <span className="block break-words text-sm font-semibold text-ink">{value}</span>
                     </span>
                   </>
                 )
@@ -98,12 +98,12 @@ export function Contact() {
                   <a
                     key={label}
                     href={href}
-                    className="group tile flex items-center gap-4 p-4"
+                    className="group tile flex min-w-0 items-center gap-4 p-4"
                   >
                     {inner}
                   </a>
                 ) : (
-                  <div key={label} className="group tile flex items-center gap-4 p-4">
+                  <div key={label} className="group tile flex min-w-0 items-center gap-4 p-4">
                     {inner}
                   </div>
                 )

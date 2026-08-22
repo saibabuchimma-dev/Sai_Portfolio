@@ -57,12 +57,12 @@ export function About() {
                     {href ? (
                       <a
                         href={href}
-                        className="block truncate text-sm font-medium text-ink transition-colors hover:text-violet-600"
+                        className="block break-words text-sm font-medium text-ink transition-colors hover:text-violet-600"
                       >
                         {value}
                       </a>
                     ) : (
-                      <span className="block truncate text-sm font-medium text-ink">{value}</span>
+                      <span className="block break-words text-sm font-medium text-ink">{value}</span>
                     )}
                   </span>
                 </li>
