@@ -20,7 +20,6 @@ const BODY = [
   '[Your name]',
 ].join('\n')
 
-
 export function buildGmailCompose(): string {
   const params = new URLSearchParams({
     view: 'cm',
@@ -32,12 +31,10 @@ export function buildGmailCompose(): string {
   return `https://mail.google.com/mail/?${params.toString()}`
 }
 
-
 export function buildHelloMailto(): string {
   return `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(SUBJECT)}&body=${encodeURIComponent(BODY)}`
 }
 
-/** A plain compose link to the address, for the raw email chip. */
 export function buildPlainMailto(): string {
   return `mailto:${CONTACT_EMAIL}`
 }

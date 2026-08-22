@@ -4,12 +4,13 @@ import { Section } from '../ui/Section'
 import { SectionHeading } from '../ui/SectionHeading'
 import { Reveal } from '../ui/Reveal'
 import { StatusBadge } from '../ui/StatusBadge'
+import { Card } from '../ui/Card'
+import { Chip } from '../ui/Chip'
 import { IconExternal, IconArrowUpRight } from '../icons'
 
 function ProjectCard({ project }: { project: Project }) {
   return (
-    <article className="surface-card flex h-full flex-col p-6 sm:p-7">
-      {/* Header */}
+    <Card as="article" className="flex h-full flex-col p-6 sm:p-7">
       <div className="flex items-start justify-between gap-4">
         <div>
           <h3 className="text-lg font-semibold text-ink">{project.name}</h3>
@@ -18,13 +19,11 @@ function ProjectCard({ project }: { project: Project }) {
         <StatusBadge status={project.status} />
       </div>
 
-      {/* Description */}
       <p className="mt-4 text-sm leading-relaxed text-ink-soft">{project.description}</p>
       {project.scopeNote && (
         <p className="mt-2 text-xs italic leading-relaxed text-ink-muted">{project.scopeNote}</p>
       )}
 
-      {/* Highlights */}
       <ul className="mt-5 space-y-2">
         {project.highlights.map((highlight, i) => (
           <li key={i} className="flex gap-2.5 text-sm leading-relaxed text-ink-soft">
@@ -34,25 +33,21 @@ function ProjectCard({ project }: { project: Project }) {
         ))}
       </ul>
 
-      {/* Tech */}
       <div className="mt-auto border-t border-ink/[0.07] pt-5">
         <div className="flex flex-wrap gap-2">
           {project.technologies.map((tech) => (
-            <span key={tech} className="tech-chip">
-              {tech}
-            </span>
+            <Chip key={tech}>{tech}</Chip>
           ))}
         </div>
       </div>
 
-      {/* Footer action — same slot for every card */}
       <div className="mt-6 pt-1">
         {project.link ? (
           <a
             href={project.link}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-2 text-sm font-semibold text-violet-600 transition-colors hover:text-violet-700"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-violet-600 transition-colors hover:text-violet-700 dark:hover:text-violet-300"
           >
             <IconExternal className="size-4" />
             {project.linkLabel ?? 'View live project'}
@@ -64,7 +59,7 @@ function ProjectCard({ project }: { project: Project }) {
           </span>
         )}
       </div>
-    </article>
+    </Card>
   )
 }
 

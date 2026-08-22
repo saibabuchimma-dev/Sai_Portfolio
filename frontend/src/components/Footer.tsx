@@ -1,6 +1,7 @@
 import { profile } from '../data/portfolio'
 import { buildPlainMailto } from '../lib/contact'
 import { IconGithub, IconLinkedin, IconMail } from './icons'
+import { SocialLink } from './ui/SocialLink'
 
 export function Footer() {
   return (
@@ -29,15 +30,15 @@ export function Footer() {
         </p>
 
         <div className="flex items-center gap-2.5">
-          <a href={profile.github} target="_blank" rel="noreferrer" aria-label="GitHub" className="social-btn">
+          <SocialLink href={profile.github} label="GitHub">
             <IconGithub className="size-[18px]" />
-          </a>
-          <a href={profile.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn" className="social-btn">
+          </SocialLink>
+          <SocialLink href={profile.linkedin} label="LinkedIn">
             <IconLinkedin className="size-[18px]" />
-          </a>
-          <a href={buildPlainMailto()} aria-label="Email" className="social-btn">
+          </SocialLink>
+          <SocialLink href={buildPlainMailto()} label="Email" external={false}>
             <IconMail className="size-[18px]" />
-          </a>
+          </SocialLink>
         </div>
       </div>
     </footer>
