@@ -3,10 +3,26 @@
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
 
-  --color-night-950: #020409;
-  --color-night-900: #060b16;
-  --color-night-800: #0b1222;
+  /* Platinum Light — premium editorial base */
+  --color-platinum: #f7f6f3;
+  --color-platinum-100: #efeef0;
+  --color-platinum-200: #e6e4e9;
+
+  --color-ink: #17131f;
+  --color-ink-soft: #3a3446;
+  --color-ink-muted: #6b6577;
+
+  /* Violet accent scale */
+  --color-violet-50: #f5f3ff;
+  --color-violet-100: #ede9fe;
+  --color-violet-200: #ddd6fe;
+  --color-violet-300: #c4b5fd;
+  --color-violet-400: #a78bfa;
+  --color-violet-500: #8b5cf6;
+  --color-violet-600: #7c3aed;
+  --color-violet-700: #6d28d9;
 }
 
 html {
@@ -14,15 +30,15 @@ html {
 }
 
 body {
-  background-color: var(--color-night-950);
-  color: #cbd5e1;
+  background-color: var(--color-platinum);
+  color: var(--color-ink-soft);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
 
 section[id] {
-  scroll-margin-top: 84px;
+  scroll-margin-top: 88px;
 }
 
 #home {
@@ -30,82 +46,101 @@ section[id] {
 }
 
 ::selection {
-  background-color: rgb(99 102 241 / 0.35);
-  color: #ffffff;
+  background-color: rgb(124 58 237 / 0.16);
+  color: var(--color-ink);
 }
 
 :focus-visible {
-  outline: 2px solid rgb(129 140 248 / 0.9);
+  outline: 2px solid rgb(124 58 237 / 0.6);
   outline-offset: 3px;
   border-radius: 6px;
 }
 
+.font-display {
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+}
+
 .text-gradient {
-  background-image: linear-gradient(100deg, #7dd3fc 0%, #818cf8 45%, #c084fc 100%);
+  background-image: linear-gradient(100deg, #6d28d9 0%, #8b5cf6 52%, #a78bfa 100%);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
 }
 
+/* Faint editorial grid + soft violet light for the platinum background */
 .bg-grid-faint {
   background-image:
-    linear-gradient(to right, rgb(148 163 184 / 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgb(148 163 184 / 0.05) 1px, transparent 1px);
-  background-size: 54px 54px;
+    linear-gradient(to right, rgb(23 19 31 / 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(23 19 31 / 0.035) 1px, transparent 1px);
+  background-size: 60px 60px;
 }
 
-@keyframes spin-slower {
-  to {
-    transform: rotate(360deg);
-  }
+.bg-halo {
+  background:
+    radial-gradient(58% 55% at 82% 10%, rgb(124 58 237 / 0.14) 0%, transparent 62%),
+    radial-gradient(50% 48% at 6% 90%, rgb(167 139 250 / 0.12) 0%, transparent 62%);
 }
 
-.animate-spin-slower {
-  animation: spin-slower 18s linear infinite;
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+.animate-float-slow {
+  animation: float-slow 7s ease-in-out infinite;
+}
+
+@keyframes spin-slow {
+  to { transform: rotate(360deg); }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 22s linear infinite;
 }
 
 @layer components {
   .btn-primary {
-    @apply inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-indigo-500 to-purple-500 px-7 py-3 text-sm font-semibold text-white shadow-[0_8px_30px_-8px_rgba(99,102,241,0.6)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_40px_-8px_rgba(139,92,246,0.7)] hover:brightness-110 active:translate-y-0;
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-violet-600 px-7 py-3 text-sm font-semibold text-white shadow-[0_10px_30px_-10px_rgba(124,58,237,0.6)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-violet-700 hover:shadow-[0_16px_42px_-12px_rgba(124,58,237,0.65)] active:translate-y-0;
   }
 
   .btn-secondary {
-    @apply inline-flex items-center gap-2 rounded-full border border-white/15 px-7 py-3 text-sm font-semibold text-slate-200 transition-all duration-300 hover:-translate-y-0.5 hover:border-indigo-400/60 hover:bg-white/5 hover:text-white active:translate-y-0;
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-ink/15 bg-white/70 px-7 py-3 text-sm font-semibold text-ink-soft shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-violet-500/60 hover:text-violet-700 hover:shadow-md active:translate-y-0;
   }
 
   .social-btn {
-    @apply inline-flex size-10 items-center justify-center rounded-full border border-white/10 text-slate-400 transition-all duration-300 hover:-translate-y-0.5 hover:border-indigo-400/50 hover:text-indigo-300;
+    @apply inline-flex size-10 items-center justify-center rounded-full border border-ink/12 bg-white text-ink-muted shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-violet-500/60 hover:text-violet-600 hover:shadow-md;
   }
 
   .tech-chip {
-    @apply rounded-lg border border-white/[0.07] bg-white/[0.04] px-2.5 py-1 font-mono text-xs text-slate-300 transition-colors duration-200 hover:border-indigo-400/50 hover:bg-indigo-500/10 hover:text-indigo-200;
+    @apply rounded-lg border border-ink/[0.08] bg-white px-2.5 py-1 font-mono text-xs text-ink-muted transition-colors duration-200 hover:border-violet-400/60 hover:bg-violet-50 hover:text-violet-700;
   }
 
   .surface-card {
-    @apply rounded-2xl border border-white/[0.07] bg-night-800/40 transition-all duration-300 hover:-translate-y-1 hover:border-indigo-400/40 hover:bg-night-800/70 hover:shadow-[0_16px_48px_-16px_rgba(99,102,241,0.35)];
+    @apply rounded-2xl border border-ink/[0.08] bg-white shadow-[0_1px_3px_rgba(23,19,31,0.04),0_12px_36px_-24px_rgba(23,19,31,0.18)] transition-all duration-300 hover:-translate-y-1 hover:border-violet-400/50 hover:shadow-[0_18px_50px_-24px_rgba(124,58,237,0.35)];
   }
 
   .tile {
-    @apply rounded-xl border border-white/[0.07] bg-white/[0.03] transition-colors duration-300 hover:border-indigo-400/40 hover:bg-indigo-500/[0.06];
+    @apply rounded-xl border border-ink/[0.08] bg-white/70 transition-colors duration-300 hover:border-violet-400/50 hover:bg-violet-50/60;
   }
 }
 
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 11px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #020409;
+  background: var(--color-platinum);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1e293b;
+  background: #cbc7d1;
   border-radius: 999px;
-  border: 2px solid #020409;
+  border: 3px solid var(--color-platinum);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #334155;
+  background: #b4aec0;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -113,7 +148,8 @@ section[id] {
     scroll-behavior: auto;
   }
 
-  .animate-spin-slower {
+  .animate-float-slow,
+  .animate-spin-slow {
     animation: none;
   }
 }
