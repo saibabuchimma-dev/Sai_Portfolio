@@ -17,7 +17,7 @@ const fadeUp = {
 }
 
 const FLOATING_STATS = [
-  { value: '2.4+', label: 'Years exp.', className: 'left-0 top-10 sm:-left-5' },
+  { value: '3+', label: 'Years exp.', className: 'left-0 top-10 sm:-left-5' },
   { value: `${PROJECTS.length}`, label: 'Projects', className: 'right-0 bottom-14 sm:-right-4' },
 ]
 
@@ -43,7 +43,7 @@ export function Hero() {
               <span className="absolute inline-flex size-full animate-ping rounded-full bg-emerald-400 opacity-70" />
               <span className="relative inline-flex size-2 rounded-full bg-emerald-500" />
             </span>
-            Open to frontend opportunities
+            Open to full-time opportunities
           </motion.span>
 
           <h1 className="mt-6 font-display tracking-tight text-ink">

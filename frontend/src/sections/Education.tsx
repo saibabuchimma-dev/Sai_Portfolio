@@ -1,4 +1,4 @@
-import { CERTIFICATION, EDUCATION } from '../data/portfolio'
+import { CERTIFICATIONS, EDUCATION } from '../data/portfolio'
 import { IconAward, IconCap } from '../components/icons'
 import { Section } from '../components/ui/Section'
 import { SectionHeading } from '../components/ui/SectionHeading'
@@ -36,22 +36,24 @@ export function Education() {
         ))}
       </div>
 
-      <Reveal delay={0.15}>
-        <article className="surface-card mt-6 flex flex-col gap-5 p-6 sm:flex-row sm:items-center sm:gap-6 sm:p-8">
-          <span className="flex size-12 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04] text-indigo-300">
-            <IconAward className="size-6" />
-          </span>
-          <div className="flex-1">
-            <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-              <h3 className="text-lg font-semibold text-white">{CERTIFICATION.title}</h3>
-              <span className="text-sm text-indigo-300/90">
-                {CERTIFICATION.issuer} · {CERTIFICATION.year}
-              </span>
+      {CERTIFICATIONS.map((certification) => (
+        <Reveal key={certification.title} delay={0.15}>
+          <article className="surface-card mt-6 flex flex-col gap-5 p-6 sm:flex-row sm:items-center sm:gap-6 sm:p-8">
+            <span className="flex size-12 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04] text-indigo-300">
+              <IconAward className="size-6" />
+            </span>
+            <div className="flex-1">
+              <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                <h3 className="text-lg font-semibold text-white">{certification.title}</h3>
+                <span className="text-sm text-indigo-300/90">
+                  {certification.issuer} · {certification.year}
+                </span>
+              </div>
+              <p className="mt-2 text-sm leading-relaxed text-slate-400">{certification.description}</p>
             </div>
-            <p className="mt-2 text-sm leading-relaxed text-slate-400">{CERTIFICATION.description}</p>
-          </div>
-        </article>
-      </Reveal>
+          </article>
+        </Reveal>
+      ))}
     </Section>
   )
 }
