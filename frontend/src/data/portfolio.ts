@@ -26,11 +26,11 @@ export const SECTION_IDS = [
 export const profile = {
   name: 'Sai Babu Chimma',
   initials: 'SC',
-  role: 'Frontend Developer',
-  stackLine: 'React.js | Next.js | TypeScript | Tailwind CSS',
+  role: 'Full Stack Developer',
+  stackLine: 'React.js | Node.js | Next.js | TypeScript',
   summary:
-    'I build clean, responsive web applications with React, Next.js, and TypeScript.',
-  location: 'Hyderabad, India',
+    'I build scalable, responsive web applications with React.js, Next.js, Node.js, Express.js, and TypeScript.',
+  location: 'Visakhapatnam, India',
   email: 'saibabuchimma888@gmail.com',
   phoneDisplay: '+91 97015 60676',
   phoneHref: 'tel:+919701560676',
@@ -55,6 +55,8 @@ export const SKILL_GROUPS: SkillGroup[] = [
       'TypeScript',
       'React.js',
       'Next.js',
+      'Node.js',
+      'Express.js',
     ],
   },
   {
@@ -72,6 +74,7 @@ export const SKILL_GROUPS: SkillGroup[] = [
       'Tailwind CSS',
       'shadcn/ui',
       'Mantine UI',
+      'Figma UX Wireframing',
       'Responsive Design',
     ],
   },
@@ -80,7 +83,10 @@ export const SKILL_GROUPS: SkillGroup[] = [
     skills: [
       'PostgreSQL',
       'MongoDB',
+      'REST API Development',
       'REST API Integration',
+      'JWT Authentication',
+      'Role-Based Access Control',
       'JSON',
     ],
   },
@@ -101,6 +107,9 @@ export const SKILL_GROUPS: SkillGroup[] = [
       'Prettier',
       'VS Code',
       'Chrome DevTools',
+      'AWS',
+      'Amazon S3',
+      'CI/CD Pipelines',
     ],
   },
   {
@@ -111,6 +120,9 @@ export const SKILL_GROUPS: SkillGroup[] = [
       'OpenAI Codex',
       'Antigravity',
       'OpenCode AI',
+      'Claude Sonnet 5',
+      'Claude Opus 5',
+      'Gemini 3.8 Flash',
     ],
   },
   {
@@ -119,16 +131,17 @@ export const SKILL_GROUPS: SkillGroup[] = [
       'Component Architecture',
       'Performance Optimization',
       'Agile / Scrum',
+      'Sprint Demos',
     ],
   },
 ]
 
 
 export const ABOUT_PARAGRAPHS = [
-  'Hi, I’m Sai. I’m a Frontend Developer based in Hyderabad, India, with 2.4+ years of experience building web applications.',
-  'I mainly work with React.js, Next.js, TypeScript, and Tailwind CSS. I enjoy turning designs and requirements into interfaces that are simple to use, responsive, and easy to maintain.',
-  'My work also involves connecting frontend applications with REST APIs, handling authentication and application state, building reusable components, and improving performance.',
-  'I enjoy working with designers, backend developers, and product teams to turn ideas into working products.',
+  'Hi, I’m Sai. I’m a Full Stack Developer based in Visakhapatnam, India, with around 3 years of experience building web applications.',
+  'I work with React.js, Next.js, JavaScript, Node.js, Express.js, and TypeScript to build scalable and responsive products.',
+  'My work includes developing REST APIs, JWT-based role-based authentication, reusable component architectures, application state management, and performance improvements.',
+  'I enjoy turning requirements and Figma wireframes into reliable products while collaborating with designers, backend developers, and product teams in Agile sprint cycles.',
 ]
 
 export const ABOUT_HIGHLIGHTS = [
@@ -152,37 +165,40 @@ export interface Experience {
 
 export const EXPERIENCE: Experience[] = [
   {
-    role: 'Junior Software Engineer — Frontend Developer',
+    role: 'Junior Software Engineer — Full Stack Developer',
     company: 'SRYTAL Systems India Pvt Ltd',
     period: 'Jan 2025 – Present',
     location: 'Hyderabad, India',
     description:
-      'I work on React and Next.js applications, building reusable components and working with APIs, authentication, state management, and dashboards.',
+      'I build scalable React and Next.js applications and REST APIs, working across frontend architecture, authentication, state management, dashboards, and deployment.',
     points: [
-      'Build responsive interfaces with React, Next.js, TypeScript, and Tailwind CSS.',
-      'Connect frontend applications with REST APIs using Axios and TanStack Query.',
-      'Work on authentication, protected routes, forms, and validation.',
-      'Build data tables and analytics dashboards for business applications.',
-      'Collaborating closely with backend developers to ship end-to-end features.',
+      'Build responsive, scalable applications with React.js, Next.js, TypeScript, HTML5, and Tailwind CSS.',
+      'Develop and integrate REST APIs with Node.js and Express.js, using Axios and TanStack Query for data fetching and caching.',
+      'Implement JWT token-based authentication, role-based access control, and protected routing across multi-role applications.',
+      'Use Next.js App Router, React Server Components, and SSR to improve performance, SEO, and initial page load times.',
+      'Develop TanStack Table data tables with search, filtering, sorting, pagination, and URL-synchronized state.',
+      'Design UX wireframes and UI mockups in Figma, and deploy applications through Git-based workflows, CI/CD pipelines, AWS, and Amazon S3.',
+      'Collaborate closely with backend developers to troubleshoot issues and ship end-to-end features.',
     ],
     projects: [
       'BringEx — Logistics & Shipment Tracking Platform',
       'JobSetu — Job Portal Platform',
       'SRYTAL Systems Company Website',
+      'Axiora Pulse — AI-Powered Startup Validation & Mentorship Platform',
     ],
   },
   {
-    role: 'Frontend Developer Intern',
+    role: 'Frontend Developer',
     company: 'Vanmayi Technologies',
-    period: 'Apr 2024 – Oct 2024',
+    period: 'Nov 2023 – Oct 2024',
     location: 'Hyderabad, India',
     description:
-      'During my internship, I worked on responsive React interfaces and reusable UI components.',
+      'I developed and enhanced responsive web applications using React.js, JavaScript, HTML5, and CSS3.',
     points: [
-      'Converted design mockups into working web pages.',
-      'Built responsive interfaces using React, HTML, CSS, and JavaScript.',
-      'Tested and fixed UI issues across different browsers and screen sizes.',
-      'Worked with Git and a collaborative development workflow.',
+      'Developed reusable React.js components, frontend features, and interactive user interfaces.',
+      'Integrated APIs and followed modern frontend development practices.',
+      'Worked on technical research, feature enhancements, UI improvements, and frontend solution evaluation.',
+      'Performed manual, debugging, cross-browser, and responsive testing to resolve UI and functional issues.',
     ],
   },
 ]
@@ -206,8 +222,8 @@ export interface Project {
 export const PROJECTS: Project[] = [
   {
     name: 'Axiora Pulse',
-    subtitle: 'AI Workspace for Startup Idea Validation',
-    status: 'Production',
+    subtitle: 'AI-Powered Startup Validation & Mentorship Platform',
+    status: 'Completed',
     featured: true,
     description:
       'Axiora Pulse is an AI-powered workspace that helps users explore and validate startup ideas through research, surveys, conversations, and collaborative workspaces.',
@@ -221,6 +237,7 @@ export const PROJECTS: Project[] = [
       'Tailwind CSS',
       'TanStack Query',
       'Zustand',
+      'Axios',
       'Jest',
     ],
     highlights: [
@@ -244,9 +261,12 @@ export const PROJECTS: Project[] = [
       'Next.js',
       'TypeScript',
       'Tailwind CSS',
+      'Mantine UI',
       'TanStack Query',
       'Zustand',
       'Recharts',
+      'React Hook Form',
+      'Axios',
       'Jest',
     ],
     highlights: [
@@ -271,6 +291,8 @@ export const PROJECTS: Project[] = [
       'Mantine UI',
       'Zustand',
       'MongoDB',
+      'React Hook Form',
+      'Axios',
     ],
     highlights: [
       'Built role-based dashboards',
@@ -292,6 +314,10 @@ export const PROJECTS: Project[] = [
       'TypeScript',
       'Tailwind CSS',
       'Mantine UI',
+      'MongoDB',
+      'Zustand',
+      'React Hook Form',
+      'Axios',
     ],
     highlights: [
       'Built dynamic pages',
@@ -328,10 +354,26 @@ export const EDUCATION: Education[] = [
   },
 ]
 
-export const CERTIFICATION = {
-  title: 'React.js Development',
-  issuer: 'Udemy',
-  year: '2026',
-  description:
-    'React fundamentals, component architecture, hooks, and modern frontend development practices.',
+export interface Certification {
+  title: string
+  issuer: string
+  year: string
+  description: string
 }
+
+export const CERTIFICATIONS: Certification[] = [
+  {
+    title: 'React.js Development',
+    issuer: 'Udemy',
+    year: '2026',
+    description:
+      'React fundamentals, component architecture, hooks, and modern frontend development practices.',
+  },
+  {
+    title: 'Prompt Engineering',
+    issuer: 'AWS Skill Builder',
+    year: '2026',
+    description:
+      'Prompt engineering fundamentals, LLM interaction, prompt optimization, and AI-assisted development workflows.',
+  },
+]

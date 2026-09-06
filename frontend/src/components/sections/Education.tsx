@@ -1,4 +1,4 @@
-import { CERTIFICATION, EDUCATION } from '../../data/portfolio'
+import { CERTIFICATIONS, EDUCATION } from '../../data/portfolio'
 import { Section } from '../ui/Section'
 import { SectionHeading } from '../ui/SectionHeading'
 import { Reveal } from '../ui/Reveal'
@@ -39,22 +39,24 @@ export function Education() {
           </Reveal>
         ))}
 
-        <Reveal delay={0.08} className="lg:col-span-2">
-          <Card className="flex flex-col gap-4 p-6 sm:flex-row sm:items-center sm:gap-5">
-            <span className="grid size-11 shrink-0 place-items-center rounded-xl bg-gradient-to-tr from-violet-600 to-violet-400 text-white shadow-[0_10px_24px_-10px_rgba(124,58,237,0.6)]">
-              <IconAward className="size-5" />
-            </span>
-            <div className="min-w-0 flex-1">
-              <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
-                <h3 className="text-base font-semibold text-ink">{CERTIFICATION.title}</h3>
-                <span className="rounded-full border border-violet-200 bg-violet-50 px-2.5 py-0.5 font-mono text-xs font-medium text-violet-700 dark:text-violet-300">
-                  {CERTIFICATION.issuer} · {CERTIFICATION.year}
-                </span>
+        {CERTIFICATIONS.map((certification) => (
+          <Reveal key={certification.title} delay={0.08} className="lg:col-span-2">
+            <Card className="flex flex-col gap-4 p-6 sm:flex-row sm:items-center sm:gap-5">
+              <span className="grid size-11 shrink-0 place-items-center rounded-xl bg-gradient-to-tr from-violet-600 to-violet-400 text-white shadow-[0_10px_24px_-10px_rgba(124,58,237,0.6)]">
+                <IconAward className="size-5" />
+              </span>
+              <div className="min-w-0 flex-1">
+                <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+                  <h3 className="text-base font-semibold text-ink">{certification.title}</h3>
+                  <span className="rounded-full border border-violet-200 bg-violet-50 px-2.5 py-0.5 font-mono text-xs font-medium text-violet-700 dark:text-violet-300">
+                    {certification.issuer} · {certification.year}
+                  </span>
+                </div>
+                <p className="mt-2 text-sm leading-relaxed text-ink-soft">{certification.description}</p>
               </div>
-              <p className="mt-2 text-sm leading-relaxed text-ink-soft">{CERTIFICATION.description}</p>
-            </div>
-          </Card>
-        </Reveal>
+            </Card>
+          </Reveal>
+        ))}
       </div>
     </Section>
   )
