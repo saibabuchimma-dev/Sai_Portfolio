@@ -1,4 +1,4 @@
-import { EXPERIENCE } from '../../data/portfolio'
+import { EXPERIENCE, TOTAL_EXPERIENCE_FORMATTED } from '../../data/portfolio'
 import { Section } from '../ui/Section'
 import { SectionHeading } from '../ui/SectionHeading'
 import { Reveal } from '../ui/Reveal'
@@ -11,7 +11,7 @@ export function Experience() {
       <SectionHeading
         index="03"
         title="Experience"
-        description="Where I've built, shipped, and grown as a frontend developer."
+        description={`${TOTAL_EXPERIENCE_FORMATTED} years of professional experience building and shipping frontend features.`}
       />
 
       <div className="mt-10">
