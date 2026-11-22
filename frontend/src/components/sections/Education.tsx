@@ -47,7 +47,18 @@ export function Education() {
               </span>
               <div className="min-w-0 flex-1">
                 <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
-                  <h3 className="text-base font-semibold text-ink">{certification.title}</h3>
+                  {certification.link ? (
+                    <a
+                      href={certification.link}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="text-base font-semibold text-ink  hover:text-violet-600"
+                    >
+                      {certification.title}
+                    </a>
+                  ) : (
+                    <h3 className="text-base font-semibold text-ink">{certification.title}</h3>
+                  )}
                   <span className="rounded-full border border-violet-200 bg-violet-50 px-2.5 py-0.5 font-mono text-xs font-medium text-violet-700 dark:text-violet-300">
                     {certification.issuer} · {certification.year}
                   </span>
