@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { profile, PROJECTS } from '../../data/portfolio'
+import { profile, PROJECTS, TOTAL_EXPERIENCE_FORMATTED } from '../../data/portfolio'
 import { EASE } from '../../lib/motion'
 import { buildGmailCompose } from '../../lib/contact'
 import { WordReveal } from '../ui/WordReveal'
@@ -17,7 +17,7 @@ const fadeUp = {
 }
 
 const FLOATING_STATS = [
-  { value: '3+', label: 'Years exp.', className: 'left-0 top-10 sm:-left-5' },
+  { value: `${TOTAL_EXPERIENCE_FORMATTED}`, label: 'Years exp.', className: 'left-0 top-10 sm:-left-5' },
   { value: `${PROJECTS.length}`, label: 'Projects', className: 'right-0 bottom-14 sm:-right-4' },
 ]
 
