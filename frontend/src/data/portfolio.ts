@@ -1,3 +1,5 @@
+import { calculateTotalExperience, formatExperience } from '../lib/utils'
+
 export interface NavLink {
   label: string
   href: string
@@ -23,8 +25,7 @@ export const SECTION_IDS = [
   'contact',
 ] as const
 
-export const profile = {
-  name: 'Sai Babu Chimma',
+export const profile = {  name: 'Sai Babu Chimma',
   initials: 'SC',
   role: 'Full Stack Developer',
   stackLine: 'React.js | Node.js | Next.js | TypeScript',
@@ -137,13 +138,6 @@ export const SKILL_GROUPS: SkillGroup[] = [
 ]
 
 
-export const ABOUT_PARAGRAPHS = [
-  'Hi, I’m Sai. I’m a Full Stack Developer based in Visakhapatnam, India, with around 3 years of experience building web applications.',
-  'I work with React.js, Next.js, JavaScript, Node.js, Express.js, and TypeScript to build scalable and responsive products.',
-  'My work includes developing REST APIs, JWT-based role-based authentication, reusable component architectures, application state management, and performance improvements.',
-  'I enjoy turning requirements and Figma wireframes into reliable products while collaborating with designers, backend developers, and product teams in Agile sprint cycles.',
-]
-
 export const ABOUT_HIGHLIGHTS = [
   'React & Next.js Development',
   'REST API Integration',
@@ -201,6 +195,22 @@ export const EXPERIENCE: Experience[] = [
       'Performed manual, debugging, cross-browser, and responsive testing to resolve UI and functional issues.',
     ],
   },
+]
+
+export const TOTAL_EXPERIENCE = calculateTotalExperience(
+  EXPERIENCE.map((job) => job.period)
+)
+
+export const TOTAL_EXPERIENCE_FORMATTED = formatExperience(
+  TOTAL_EXPERIENCE.years,
+  TOTAL_EXPERIENCE.months
+)
+
+export const ABOUT_PARAGRAPHS = [
+  `Hi, I’m Sai. I’m a Full Stack Developer based in Visakhapatnam, India, with ${TOTAL_EXPERIENCE_FORMATTED} years of experience building web applications.`,
+  'I work with React.js, Next.js, JavaScript, Node.js, Express.js, and TypeScript to build scalable and responsive products.',
+  'My work includes developing REST APIs, JWT-based role-based authentication, reusable component architectures, application state management, and performance improvements.',
+  'I enjoy turning requirements and Figma wireframes into reliable products while collaborating with designers, backend developers, and product teams in Agile sprint cycles.',
 ]
 
 export type ProjectStatus = 'In Progress' | 'Production' | 'Completed'

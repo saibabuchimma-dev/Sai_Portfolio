@@ -1,4 +1,4 @@
-import { EXPERIENCE } from '../data/portfolio'
+import { EXPERIENCE, TOTAL_EXPERIENCE_FORMATTED } from '../data/portfolio'
 import { IconMapPin } from '../components/icons'
 import { Section } from '../components/ui/Section'
 import { SectionHeading } from '../components/ui/SectionHeading'
@@ -10,7 +10,7 @@ export function Experience() {
       <SectionHeading
         index="03"
         title="Experience"
-        description="Professional journey building and shipping frontend features."
+        description={`${TOTAL_EXPERIENCE_FORMATTED} years of professional experience building and shipping frontend features.`}
       />
       <ol className="relative mt-14 space-y-12 before:absolute before:bottom-2 before:left-[7px] before:top-2 before:w-px before:bg-gradient-to-b before:from-indigo-400/60 before:via-purple-400/25 before:to-transparent sm:before:left-[8px]">
         {EXPERIENCE.map((job, idx) => (
