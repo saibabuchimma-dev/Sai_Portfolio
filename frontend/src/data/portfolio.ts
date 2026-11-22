@@ -37,7 +37,7 @@ export const profile = {
   linkedin: 'https://linkedin.com/in/saibabuchimma',
   github: 'https://github.com/saibabuchimma-dev',
   photo: '/saiPassportSize.jpeg' as string | null,
-  resume: '/resume.pdf',
+  resume: '/resume2.pdf',
 }
 
 export interface SkillGroup {
@@ -276,7 +276,8 @@ export const PROJECTS: Project[] = [
       'Implemented role-based authentication',
       'Added URL-based filtering and pagination',
     ],
-    unavailableNote: 'Currently in development',
+    link: 'https://qa.bringexlogistics.com/',
+    linkLabel: 'View QA Project',
   },
   {
     name: 'JobSetu',
@@ -359,9 +360,26 @@ export interface Certification {
   issuer: string
   year: string
   description: string
+  link?: string
 }
 
 export const CERTIFICATIONS: Certification[] = [
+  {
+    title: 'Claude Code in Action',
+    issuer: 'Anthropic',
+    year: '2026',
+    description:
+      'Hands-on training in using Claude Code for AI-assisted software development workflows.',
+    link: 'https://verify.skilljar.com/c/ujikdo9caocy',
+  },
+  {
+    title: 'Building with the Claude API',
+    issuer: 'Anthropic',
+    year: '2026',
+    description:
+      'Training in building applications and workflows using the Claude API.',
+    link: 'https://verify.skilljar.com/c/t22j8uu9fejx',
+  },
   {
     title: 'React.js Development',
     issuer: 'Udemy',
